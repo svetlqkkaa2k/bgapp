@@ -8,12 +8,14 @@ services:
         deploy:
 
             replicas: 5
+
         ports:
 
             - 8080:80
 
         volumes:
-            - "${PROJECT_ROOT}:/var/www/html:ro"
+
+            - "/home/vagrant/bgapp/web:/var/www/html:ro"
 
         networks:
 
@@ -22,12 +24,12 @@ services:
 
        image: svetlqkaa/bgapp-db
 
-      networks:
+       networks:
 
-           - app-network
+            - app-network
 
-      environment:
-           MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+       environment:
+            MYSQL_ROOT_PASSWORD: "12345"
 
 networks:
 
